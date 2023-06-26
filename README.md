@@ -1,4 +1,9 @@
+Install + Run with Moreh 
+ 
+    pip install -e .[all]
+    update-moreh --force --torch 1.10.0
 
+    python run_all_models.py
 
 ## 🐸Coqui.ai News
 - 📣 You can use [~1100 Fairseq models](https://github.com/facebookresearch/fairseq/tree/main/examples/mms) with 🐸TTS.
