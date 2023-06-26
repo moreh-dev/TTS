@@ -1,3 +1,4 @@
+from pathlib import Path
 from TTS.api import TTS
 
 
@@ -8,6 +9,7 @@ for model_name in TTS.list_models():
         "text": "This is a test! This is also a test!!",
         "emotion": "Happy",
         "speed": 1.5,
+        "file_path": Path(model_name).stem + ".wav",
     }
 
     if tts_model.is_multi_speaker:
