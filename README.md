@@ -1,7 +1,12 @@
-Install + Run with Moreh 
+Set up
  
+    conda create -n tts python=3.8
+    conda activate tts
+
     pip install -e .[all]
-    update-moreh --force --torch 1.10.0
+    update-moreh --force --torch 1.13.1
+
+Test all models
 
     python run_all_models.py
 
