@@ -35,13 +35,13 @@ def main():
             config = load_config(os.path.join(args.continue_path, "config.json"))
             if len(config_overrides) > 0:
                 config.parse_known_args(config_overrides, relaxed_parser=True)
-        else:
-            # init from console args
-            from TTS.config.shared_configs import BaseTrainingConfig  # pylint: disable=import-outside-toplevel
+    else:
+        # init from console args
+        from TTS.config.shared_configs import BaseTrainingConfig  # pylint: disable=import-outside-toplevel
 
-            config_base = BaseTrainingConfig()
-            config_base.parse_known_args(config_overrides)
-            config = register_config(config_base.model)()
+        config_base = BaseTrainingConfig()
+        config_base.parse_known_args(config_overrides)
+        config = register_config(config_base.model)()
 
     # load training samples
     train_samples, eval_samples = load_tts_samples(

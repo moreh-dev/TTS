@@ -1,0 +1,17 @@
+{
+    "model": "tacotron",
+    "lr": 0.01,
+    "epochs": 100,
+    "mixed_precision": false,
+    
+
+    "datasets": [
+        {
+            "dataset_name": "ljspeech",
+            "formatter": "ljspeech",
+            "path": "/nas/common_data/ljspeech/data",
+            "meta_file_train": "metadata.csv"
+
+        }
+    ]
+}
