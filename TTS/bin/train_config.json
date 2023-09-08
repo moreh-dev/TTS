@@ -2,8 +2,9 @@
     "model": "tacotron",
     "lr": 0.01,
     "epochs": 100,
-    "mixed_precision": false,
-    
+    "mixed_precision": false,    
+    "batch_size": 64,
+    "eval_batch_size": 32,
 
     "datasets": [
         {
