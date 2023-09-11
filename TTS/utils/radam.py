@@ -100,7 +100,7 @@ class RAdam(Optimizer):
                     if group["weight_decay"] != 0:
                         p_data_fp32.add_(p_data_fp32, alpha=-group["weight_decay"] * group["lr"])
                     p_data_fp32.add_(exp_avg, alpha=-step_size * group["lr"])
-                    torch.save(p_data_fp32, "p_data_fp32.pt")
+                    # torch.save(p_data_fp32, "p_data_fp32.pt")
                     # torch.save(p.data, "p_data.pt")
                     # p.copy_(p_data_fp32)
                     p.data.copy_(p_data_fp32)
