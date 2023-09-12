@@ -1,0 +1,148 @@
+(tts) ubuntu@moreh-2004-vm07:/nas/huong/projects/TTS$ python TTS/bin/train_tts.py --config_path TTS/bin/train_config.json 2>&1 | tee log.txt
+2023-09-08 11:22:00,232 - torch.distributed.nn.jit.instantiator - INFO - Created a temporary directory at /tmp/tmpuya1wlnh
+2023-09-08 11:22:00,232 - torch.distributed.nn.jit.instantiator - INFO - Writing /tmp/tmpuya1wlnh/_remote_module_non_scriptable.py
+[2023-09-08 11:22:21.950] [info] Requesting resources for KT AI Accelerator from the server...
+[2023-09-08 11:22:22.968] [info] Initializing the worker daemon for KT AI Accelerator
+[2023-09-08 11:22:24.619] [info] [1/1] Connecting to resources on the server (192.168.110.43:24162)...
+[2023-09-08 11:22:24.631] [info] Establishing links to the resources...
+[2023-09-08 11:22:24.795] [info] KT AI Accelerator is ready to use.
+/nas/.conda/envs/tts/lib/python3.8/site-packages/torch/_M/driver/cuda/builtin.py:27: UserWarning: torch.cuda.empty_cache() is ignored in Moreh AI Framework. This does not affect the program behavior in most cases. Please contact technical support for further information.
+  warnings.warn(
+ > Training Environment:
+ | > Current device: 0
+ | > Num. of GPUs: 1
+ | > Num. of CPUs: 16
+ | > Num. of Torch Threads: 16
+ | > Torch seed: 54321
+ | > Torch CUDNN: True
+ | > Torch CUDNN deterministic: False
+ | > Torch CUDNN benchmark: False
+ > Start Tensorboard: tensorboard --logdir=output/run-September-08-2023_11+22AM-89a0a426
+
+ > Model has 6786851 parameters
+
+[4m[1m > EPOCH: 0/100[0m
+ --> output/run-September-08-2023_11+22AM-89a0a426
+
+[1m > TRAINING (2023-09-08 11:22:27) [0m
+[2023-09-08 11:22:31.120] [error] tensor_mapping_.count(source_tensor), tensor id: 212195, File "../frontend/compiler/base.cpp", line 177
+ | > Found 13100 files in /nas/common_data/ljspeech/data
+ > Using model: tacotron
+ > Setting up Audio Processor...
+ | > sample_rate:22050
+ | > resample:False
+ | > num_mels:80
+ | > log_func:np.log10
+ | > min_level_db:-100
+ | > frame_shift_ms:None
+ | > frame_length_ms:None
+ | > ref_level_db:20
+ | > fft_size:1024
+ | > power:1.5
+ | > preemphasis:0.0
+ | > griffin_lim_iters:60
+ | > signal_norm:True
+ | > symmetric_norm:True
+ | > mel_fmin:0
+ | > mel_fmax:None
+ | > pitch_fmin:1.0
+ | > pitch_fmax:640.0
+ | > spec_gain:20.0
+ | > stft_pad_mode:reflect
+ | > max_norm:4.0
+ | > clip_norm:True
+ | > do_trim_silence:True
+ | > trim_db:45
+ | > do_sound_norm:False
+ | > do_amp_to_db_linear:True
+ | > do_amp_to_db_mel:True
+ | > do_rms_norm:False
+ | > db_level:None
+ | > stats_path:None
+ | > base:10
+ | > hop_length:256
+ | > win_length:1024
+
+
+> DataLoader initialization
+| > Tokenizer:
+	| > add_blank: False
+	| > use_eos_bos: False
+	| > use_phonemes: False
+| > Number of instances : 12969
+ | > Preprocessing samples
+ | > Max text length: 188
+ | > Min text length: 13
+ | > Avg text length: 100.90014650319993
+ | 
+ | > Max audio length: 222643.0
+ | > Min audio length: 24499.0
+ | > Avg audio length: 144984.29755570978
+ | > Num. instances discarded samples: 0
+ | > Batch group size: 0.
+Two young women,
+
+ [!] Character '\n' not found in the vocabulary. Discarding it.
+Traceback (most recent call last):
+  File "/nas/.conda/envs/tts/lib/python3.8/site-packages/trainer/trainer.py", line 1591, in fit
+    self._fit()
+  File "/nas/.conda/envs/tts/lib/python3.8/site-packages/trainer/trainer.py", line 1544, in _fit
+    self.train_epoch()
+  File "/nas/.conda/envs/tts/lib/python3.8/site-packages/trainer/trainer.py", line 1309, in train_epoch
+    _, _ = self.train_step(batch, batch_num_steps, cur_step, loader_start_time)
+  File "/nas/.conda/envs/tts/lib/python3.8/site-packages/trainer/trainer.py", line 1141, in train_step
+    outputs, loss_dict_new, step_time = self._optimize(
+  File "/nas/.conda/envs/tts/lib/python3.8/site-packages/trainer/trainer.py", line 1083, in _optimize
+    optimizer.step()
+  File "/nas/.conda/envs/tts/lib/python3.8/site-packages/torch/optim/lr_scheduler.py", line 68, in wrapper
+    return wrapped(*args, **kwargs)
+  File "/nas/.conda/envs/tts/lib/python3.8/site-packages/torch/optim/optimizer.py", line 140, in wrapper
+    out = func(*args, **kwargs)
+  File "/nas/huong/projects/TTS/TTS/utils/radam.py", line 103, in step
+    p.data.copy_(p_data_fp32)
+  File "/nas/.conda/envs/tts/lib/python3.8/site-packages/torch/_M/driver/wrapper/moreh_wrapper.py", line 133, in wrapper
+    raise instance
+  File "/nas/.conda/envs/tts/lib/python3.8/site-packages/torch/_M/driver/wrapper/moreh_wrapper.py", line 74, in wrapper
+    return moreh_function(
+  File "/nas/.conda/envs/tts/lib/python3.8/site-packages/torch/_M/driver/tensor.py", line 2359, in copy_
+    result = frontend.register_elemwise_binary_(
+  File "/nas/.conda/envs/tts/lib/python3.8/site-packages/torch/_M/driver/common/frontend.py", line 1254, in register_elemwise_binary_
+    return _register_elemwise_binary(tensors,
+  File "/nas/.conda/envs/tts/lib/python3.8/site-packages/torch/_M/driver/common/frontend.py", line 1086, in _register_elemwise_binary
+    return register_operation_(list(tensors), elemwise_op)
+  File "/nas/.conda/envs/tts/lib/python3.8/site-packages/torch/_M/driver/common/frontend.py", line 734, in register_operation_
+    return _register_operation_internal(input_tensors, inplace_output_tensors,
+  File "/nas/.conda/envs/tts/lib/python3.8/site-packages/torch/_M/driver/common/frontend.py", line 614, in _register_operation_internal
+    output_tickets = moreh_f.create_operation(op_name, op.SerializeToString(),
+  File "/nas/.conda/envs/tts/lib/python3.8/site-packages/moreh/driver/moreh_f/moreh_f.py", line 1022, in create_operation
+    return _moreh_f.create_operation(operator_str, proto_str_ptr, input_tickets, inplace_output_tickets, grad_enabled)
+RuntimeError: Error Code: 1
+KT AI Accelerator is currently unavailable to process the application's requests. It appears that an error has occurred due to the following reasons:
+  1. Invalid Memory Access: The application attempted to access an invalid location in the device's memory.
+  2. Improper Distribution of Computational Tasks: The computational tasks might not have been distributed correctly among the physical devices, or there may have been an issue while connecting the physical devices within KT AI Accelerator.
+To resolve this issue, we recommend following these general troubleshooting:
+ - Install the latest version of Moreh with the following command: update-moreh --target (latest version)
+If you continue to experience this problem, please reach out to our technical support team for further assistance.
+
+error dump: 16 1 10 23 11 22 59 9 5 20 20 13 10 3 59 74 7 11 17 10 16 76 23 11 17 22 7 1 59 16 1 10 23 11 22 77 72 68 16 1 10 23 11 22 68 13 0 94 68 86 85 86 85 93 81 72 68 34 13 8 1 68 70 74 74 75 2 22 11 10 16 1 10 0 75 7 11 9 20 13 8 1 22 75 6 5 23 1 74 7 20 20 70 72 68 8 13 10 1 68 85 83 83
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "TTS/bin/train_tts.py", line 71, in <module>
+    main()
+  File "TTS/bin/train_tts.py", line 67, in main
+    trainer.fit()
+  File "/nas/.conda/envs/tts/lib/python3.8/site-packages/trainer/trainer.py", line 1610, in fit
+    remove_experiment_folder(self.output_path)
+  File "/nas/.conda/envs/tts/lib/python3.8/site-packages/trainer/generic_utils.py", line 64, in remove_experiment_folder
+    fs.rm(experiment_path, recursive=True)
+  File "/nas/.conda/envs/tts/lib/python3.8/site-packages/fsspec/implementations/local.py", line 168, in rm
+    shutil.rmtree(p)
+  File "/nas/.conda/envs/tts/lib/python3.8/shutil.py", line 722, in rmtree
+    onerror(os.rmdir, path, sys.exc_info())
+  File "/nas/.conda/envs/tts/lib/python3.8/shutil.py", line 720, in rmtree
+    os.rmdir(path)
+OSError: [Errno 39] Directory not empty: '/nas/huong/projects/TTS/output/run-September-08-2023_11+22AM-89a0a426'
+/nas/.conda/envs/tts/lib/python3.8/tempfile.py:818: ResourceWarning: Implicitly cleaning up <TemporaryDirectory '/tmp/tmpuya1wlnh'>
+  _warnings.warn(warn_message, ResourceWarning)
