@@ -1,10 +1,11 @@
 {
-    "model": "tacotron",
+    "model": "neuralhmm_tts",
     "lr": 0.01,
     "epochs": 100,
     "mixed_precision": false,    
-    "batch_size": 64,
-    "eval_batch_size": 32,
+    "batch_size": 32,
+    "eval_batch_size": 16,
+    "mel_statistics_parameter_path": "none",
 
     "datasets": [
         {

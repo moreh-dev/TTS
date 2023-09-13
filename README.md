@@ -6,15 +6,17 @@ Note: tts api only works with moreh torch 1.7.1
 
     update-moreh --force --torch 1.13.1
 
+    pip install -U numba
+
 Available model names
 
-tacotron X
+tacotron X opened issue
 tacotron2 X
 vits
-overflow X
-neuralhmm_tts X
-glow_tts X debug
-align_tts X a100
+overflow ?
+neuralhmm_tts X same as overflow # recipes/ljspeech/overflow/lj_parameters.pt
+glow_tts X same as tacotron
+align_tts X opened issue
 
 Available datasets
 
