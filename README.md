@@ -10,6 +10,18 @@ Test all models
 
     python run_all_models.py
 
+Train error
+
+    python TTS/bin/train_tts.py --config_path TTS/bin/train_config.json
+
+    python TTS/bin/train_encoder.py
+
+    python TTS/bin/train_vocoder.py --config_path tests/inputs/test_vocoder_wavernn_config.json
+
+Working
+
+    python TTS/bin/train_vocoder.py --config_path tests/inputs/test_vocoder_multiband_melgan_config.json
+
 ## 🐸Coqui.ai News
 - 📣 You can use [~1100 Fairseq models](https://github.com/facebookresearch/fairseq/tree/main/examples/mms) with 🐸TTS.
 - 📣 🐸TTS now supports 🐢Tortoise with faster inference.
