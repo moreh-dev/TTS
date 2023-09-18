@@ -1,4 +1,5 @@
 WadaSNR/
+*output*
 .idea/
 *.pyc
 .DS_Store

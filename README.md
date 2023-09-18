@@ -1,10 +1,14 @@
-Note: tts api only works with moreh torch 1.7.1
-
+Set up
+ 
     conda create -n tts python=3.8
     conda activate tts
-    pip install -e .[dev]
 
+    pip install -e .[all]
     update-moreh --force --torch 1.13.1
+
+Test all models
+
+    python run_all_models.py
 
 ## 🐸Coqui.ai News
 - 📣 You can use [~1100 Fairseq models](https://github.com/facebookresearch/fairseq/tree/main/examples/mms) with 🐸TTS.
